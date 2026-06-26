@@ -17,8 +17,13 @@ app = FastAPI(
     title="Stock GPT API",
     description="A股实时行情、估值查询接口，用于 ChatGPT Actions",
     version="1.0.0",
+    servers=[
+        {
+            "url": "https://stock-gpt-api-hz4w.onrender.com",
+            "description": "Render production server"
+        }
+    ],
 )
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
